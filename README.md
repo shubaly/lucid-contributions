@@ -41,9 +41,11 @@ order by
   [Contributor name];
 
 ### Run
+* git clone git@github.com:shubaly/lucid-contributions.git
 * npm install
 * npm start --example=src
-* 
+* npm install graphology sigma
+
 ### Enhancements
 * Make this work with any jurisdiction's data without code changes!
 * Make nodes draggable so researchers can reposition
