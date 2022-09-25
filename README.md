@@ -25,7 +25,7 @@ A tool to investigate contributor/recipient networks in political campaign contr
   - Required fields: `Recipient,Political Party of Recipient,Contributor name,Monetary amount`
 - Sample visualizaton:
 <picture>
-  <img alt="Lucid Contributions Screenshot" src="screenshot.png">
+  <img alt="Lucid Contributions Screenshot" src="https://github.com/shubaly/lucid-contributions/raw/main/screenshot.png">
 </picture>
 
 ### Additional Information
