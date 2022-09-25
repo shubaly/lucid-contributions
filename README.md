@@ -42,7 +42,8 @@ order by
 
 ### Run
 * npm install
-
+* npm start --example=src
+* 
 ### Enhancements
 * Make this work with any jurisdiction's data without code changes!
 * Make nodes draggable so researchers can reposition
