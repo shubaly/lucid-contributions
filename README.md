@@ -7,14 +7,33 @@
 A tool to investigate contributor/recipient patterns in political campaign contribution data.
 
 ## Installation
-TODO
+1. Install node: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+
+2. Download lucid-contributions:
+
+        git clone git@github.com:shubaly/lucid-contributions.git
+
+3. Move to the tool's directory and install the tool
+
+        cd lucid-contributions
+        npm install
+        npm start --example=lucid-contributions
 
 ## Usage
-TODO
+- Download campaign contribution datasets, e.g. https://www.elections.ca/content.aspx?section=fin&dir=oda&document=index&lang=e
+  - Copy data to ./public/data.csv
+  - Required fields: `Recipient,Political Party of Recipient,Contributor name,Monetary amount`
+- Sample visualizaton:
+<picture>
+  <img alt="Lucid Contributions Screenshot" src="screenshot.png">
+</picture>
 
 ### Additional Information
-- Fix packaging/installation
-- Make this work with any jurisdiction's data without code changes!
-- Make nodes draggable so researchers can reposition
-- Size nodes based on contribution value (+ sum for recipients)
-- Add ability to search for contributor / recipient 
+- Next Steps
+  - Fix packaging/installation
+  - Make this work with any jurisdiction's data without code changes!
+
+- Enhancements
+  - Make nodes draggable so researchers can reposition
+  - Size nodes based on contribution value (+ sum for recipients)
+  - Add ability to search for contributor / recipient 
