@@ -6,4 +6,5 @@ node_modules
 Notes.md
 
 .idea
-/.idea
+/.idea/*
+/src/package-lock.json
