@@ -1,7 +1,7 @@
 {
-  "name": "sigma-examples",
+  "name": "lucid-contributions",
   "version": "1.0.0",
-  "description": "Sigma examples root package.",
+  "description": "Run the tool.",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
