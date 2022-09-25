@@ -1,7 +1,7 @@
 # Lucid Contributions
 
 ## Team Members
-Thane Shubaly https://github.com/shubaly
+[Thane Shubaly](https://github.com/shubaly)
 
 ## Tool Description
 A tool to investigate contributor/recipient patterns in political campaign contribution data.
