@@ -4,7 +4,7 @@
 [Thane Shubaly](https://github.com/shubaly)
 
 ## Tool Description
-A tool to investigate contributor/recipient patterns in political campaign contribution data.
+A tool to investigate contributor/recipient networks in political campaign contribution data. 
 
 ## Installation
 1. Install node: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
