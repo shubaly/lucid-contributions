@@ -1,5 +1,5 @@
 {
-  "name": "transparent-contributions",
+  "name": "lucid-contributions",
   "version": "0.0.1",
   "description": "This example loads a raw CSV dataset, and transforms the data to get a drawable network map, using Graphology.",
   "main": "index.js",
