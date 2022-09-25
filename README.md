@@ -35,3 +35,5 @@ A tool to investigate contributor/recipient networks in political campaign contr
   - Make nodes draggable so researchers can reposition
   - Size nodes based on contribution value (+ sum for recipients)
   - Add ability to search for contributor / recipient 
+
+- Built with [Sigma.js])(https://www.sigmajs.org/)
