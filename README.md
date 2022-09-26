@@ -20,6 +20,11 @@ A tool to investigate contributor/recipient networks in political campaign contr
         npm install
         npm start
 
+4. Open in browser
+
+        http://localhost:3000/ 
+
+
 ## Usage
 - Download campaign contribution datasets, e.g. `https://www.elections.ca/content.aspx?section=fin&dir=oda&document=index&lang=e`
   - Copy data to `./public/data.csv`
