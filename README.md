@@ -16,8 +16,9 @@ A tool to investigate contributor/recipient networks in political campaign contr
 3. Move to the tool's directory and install the tool
 
         cd lucid-contributions
+        cd src
         npm install
-        npm start --example=lucid-contributions
+        npm start
 
 ## Usage
 - Download campaign contribution datasets, e.g. https://www.elections.ca/content.aspx?section=fin&dir=oda&document=index&lang=e
