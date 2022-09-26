@@ -2,7 +2,7 @@
 
 ## Description
 
-Lucid Contributions visualizes contributor-recipient networks in political campaign contribution data. 
+FormLucid Contributions visualizes contributor-recipient networks in political campaign contribution data.
 
 Born out of Bellingcat's OSINT Tools Hackathon 23-25 September 2022.
 
