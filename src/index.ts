@@ -1,7 +1,3 @@
-/**
- *
- */
-
 import Sigma from "sigma";
 import Papa from "papaparse";
 import Graph from "graphology";
@@ -9,8 +5,10 @@ import circular from "graphology-layout/circular";
 import forceAtlas2 from "graphology-layout-forceatlas2";
 
 function titleCase(str: string) {
-    str = str.replace('  ', ' ')
+    str = str.replace('  ', ' ');
     return str.toLowerCase().split(' ').map(function (word: string) {
+        // avoid null errors
+        if (word[0] === undefined) return word;
         return word.replace(word[0], word[0].toUpperCase());
     }).join(' ');
 }
