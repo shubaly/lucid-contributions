@@ -9,7 +9,7 @@ function titleCase(str: string) {
     str = str.replace('  ', ' ');
     return str.toLowerCase().split(' ').map(function (word: string) {
         // avoid null errors
-R        if (word[0] === undefined) return word;
+        if (word[0] === undefined) return word;
         return word.replace(word[0], word[0].toUpperCase());
     }).join(' ');
 }
@@ -25,7 +25,7 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
     complete: (results) => {
         const graph: Graph = new Graph();
 
-        // 2. Build the bipartite graph:
+        // Build the graph:
         results.data.forEach((line) => {
             const contributor = titleCase(line.Contributorname);
             const contributor_info = line.ContributorPostalcode;
@@ -70,7 +70,7 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
             }
         });
 
-        // 4. Add colors to the nodes, based on node types:
+        // Add colors to the nodes, based on node types:
         const COLORS: Record<string, string> = {
             contributor: "#FA5A3D",
             recipient: "#5A75DB",
@@ -97,7 +97,7 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
         });
 
 
-        // Use degrees for node sizes:
+        // Use those calculated degrees for node sizes:
         const degrees = graph.nodes().map((node) => graph.getNodeAttribute(node, 'degree'));
         const minDegree = Math.min(...degrees);
         const maxDegree = Math.max(...degrees);
@@ -113,17 +113,16 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
             );
         });
 
-        // 6. Position nodes on a circle, then run Force Atlas 2 for a while to get
-        //    proper graph layout:
+        // Position nodes on a circle, then run Force Atlas 2 for a while to get proper graph layout:
         circular.assign(graph);
         const settings = forceAtlas2.inferSettings(graph);
         forceAtlas2.assign(graph, {settings, iterations: 600});
 
-        // 7. Hide the loader from the DOM:
+        // Hide the loader from the DOM:
         const loader = document.getElementById("loader") as HTMLElement;
         loader.style.display = "none";
 
-        // 8. Finally, draw the graph using sigma:
+        // Finally, draw the graph using sigma:
         const container = document.getElementById("sigma-container") as HTMLElement;
         new Sigma(graph, container);
     },
