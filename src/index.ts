@@ -5,11 +5,11 @@ import circular from "graphology-layout/circular";
 import forceAtlas2 from "graphology-layout-forceatlas2";
 
 function titleCase(str: string) {
-    if(str === undefined) return str;
+    if (str === undefined) return str;
     str = str.replace('  ', ' ');
     return str.toLowerCase().split(' ').map(function (word: string) {
         // avoid null errors
-        if (word[0] === undefined) return word;
+R        if (word[0] === undefined) return word;
         return word.replace(word[0], word[0].toUpperCase());
     }).join(' ');
 }
