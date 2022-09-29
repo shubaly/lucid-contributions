@@ -5,6 +5,7 @@ import circular from "graphology-layout/circular";
 import forceAtlas2 from "graphology-layout-forceatlas2";
 
 function titleCase(str: string) {
+    if(str === undefined) return str;
     str = str.replace('  ', ' ');
     return str.toLowerCase().split(' ').map(function (word: string) {
         // avoid null errors
@@ -53,11 +54,12 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
                 });
             }
 
-            // TODO ensure no duplicate edges in the pre-processing above
-            graph.addDirectedEdge(contributor, recipient, {
-                weight: 5,
-                label: contribution_value
-            });
+            if (!graph.hasDirectedEdge(contributor, recipient)) {
+                graph.addDirectedEdge(contributor, recipient, {
+                    weight: 5,
+                    label: contribution_value
+                });
+            }
 
             // FIXME what if recipient and recipient_party are the same?
             if (!graph.hasDirectedEdge(recipient, recipient_party)) {
@@ -72,7 +74,7 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
         const COLORS: Record<string, string> = {
             contributor: "#FA5A3D",
             recipient: "#5A75DB",
-            recipient_party: "#7DF60D"
+            recipient_party: "#F6D70D"
         };
         graph.forEachNode((node, attributes) =>
             graph.setNodeAttribute(node, "color", COLORS[attributes.nodeType as string]),
