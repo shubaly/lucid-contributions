@@ -59,6 +59,8 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
                     weight: 5,
                     label: contribution_value
                 });
+            } else {
+                console.log('Duplicate contributor-recipient edge: ' + JSON.stringify(line))
             }
 
             // FIXME what if recipient and recipient_party are the same?
@@ -66,7 +68,6 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
                 graph.addDirectedEdge(recipient, recipient_party, {
                     weight: 5
                 });
-
             }
         });
 
@@ -76,6 +77,7 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
             recipient: "#5A75DB",
             recipient_party: "#F6D70D"
         };
+
         graph.forEachNode((node, attributes) =>
             graph.setNodeAttribute(node, "color", COLORS[attributes.nodeType as string]),
         );
