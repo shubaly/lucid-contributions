@@ -1,7 +1,7 @@
 {
   "name": "lucid-contributions",
-  "version": "0.0.1",
-  "description": "This example loads a raw CSV dataset, and transforms the data to get a drawable network map, using Graphology.",
+  "version": "0.0.2",
+  "description": "Load a raw CSV dataset, and transform the data to get a drawable network map, using Graphology.",
   "main": "index.js",
   "scripts": {
     "start": "kotatsu serve --typescript index.ts --public / ../data"
