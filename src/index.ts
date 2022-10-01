@@ -25,7 +25,7 @@ function determineDataFile() {
     console.log(`data_file=${data_file}`);
 }
 
-data_file = determineDataFile();
+let data_file = determineDataFile();
 
 // TODO make this dynamic based on the field mapping
 Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipient: string, ContributorPostalcode: string, Monetaryamount: number }>(`./${data_file}.csv`, {
