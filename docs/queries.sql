@@ -1,3 +1,4 @@
+-- data-calgary-ridings
 select
   lower([Recipient]) as Recipient,
   lower([Political Party of Recipient]) as 'Political Party of Recipient',
@@ -6,27 +7,18 @@ select
 from
   od_cntrbtn_audt_e
 where
-  [Fiscal/Election date] >= '2016-12-31'
-  and [Electoral District] in (
-    'Dartmouth--Cole Harbour',
-    'Halifax',
-    'Halifax West',
-    'South Shore--St. Margarets',
-    'Central Nova',
-    'Sydney--Victoria',
-    'Kings--Hants',
-    'Cape Breton--Canso',
-    'Sackville--Preston--Chezzetcook',
-    'West Nova'
-  )
+  [Fiscal/Election date] >= '2016-01-01'
+  and [Electoral District] like 'Calgary%'
   and [Contributor name] not like 'Contributions of%'
+  and [Monetary amount] > 0
 group by
   lower([Recipient]),
   lower([Political Party of Recipient]),
   lower([Contributor name])
 order by
-  [Contributor name]
-;
+  random() -- keep it smallish for default data file
+limit
+  2200;
 
 --data-right-wing
 select
@@ -54,7 +46,7 @@ group by
 order by
   random();
 
--- data-ns
+-- data-ns-contributors
 select
   lower([Recipient]) as Recipient,
   lower([Political Party of Recipient]) as 'Political Party of Recipient',
