@@ -14,6 +14,7 @@
     "graphology-layout": "^0.4.1",
     "graphology-layout-forceatlas2": "^0.6.1",
     "papaparse": "^5.3.1",
+    "sanitize-filename": "^1.6.3",
     "sigma": "^2.3.1"
   },
   "devDependencies": {

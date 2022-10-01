@@ -3,6 +3,7 @@ import Papa from "papaparse";
 import Graph from "graphology";
 import circular from "graphology-layout/circular";
 import forceAtlas2 from "graphology-layout-forceatlas2";
+import sanitize from "sanitize-filename";
 
 function titleCase(str: string) {
     if (str === undefined) return str;
@@ -14,8 +15,20 @@ function titleCase(str: string) {
     }).join(' ');
 }
 
+// is there a better way to structure or locate this code?
+function determineDataFile() {
+    let data_file = <string>new URLSearchParams(window.location.search).get('data');
+    data_file = sanitize(data_file);
+    if (data_file === null) {
+        data_file = 'data';
+    }
+    console.log(`data_file=${data_file}`);
+}
+
+data_file = determineDataFile();
+
 // TODO make this dynamic based on the field mapping
-Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipient: string, ContributorPostalcode: string, Monetaryamount: number }>("./data.csv", {
+Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipient: string, ContributorPostalcode: string, Monetaryamount: number }>(`./${data_file}.csv`, {
     download: true,
     header: true,
     delimiter: ",",
@@ -73,9 +86,9 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
 
         // Add colors to the nodes, based on node types:
         const COLORS: Record<string, string> = {
-            contributor: "#FA5A3D",
-            recipient: "#5A75DB",
-            recipient_party: "#F6D70D"
+            contributor: "#003f5c",
+            recipient: "#bc5090",
+            recipient_party: "#ffa600"
         };
 
         graph.forEachNode((node, attributes) =>
