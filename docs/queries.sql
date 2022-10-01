@@ -45,13 +45,13 @@ where
     "Canadian Action Party	"
   )
   and [Contributor name] not like 'Contributions of%'
+  and [Monetary amount] > 0
 group by
   lower([Recipient]),
   lower([Political Party of Recipient]),
   lower([Contributor name])
 order by
-  [Contributor name]
-;
+  [Contributor name];
 
 select
   lower([Recipient]) as Recipient,
