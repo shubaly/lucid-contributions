@@ -17,15 +17,17 @@ function titleCase(str: string) {
 
 // is there a better way to structure or locate this code?
 function determineDataFile() {
-    let data_file = <string>new URLSearchParams(window.location.search).get('data');
-    data_file = sanitize(data_file);
-    if (data_file === null) {
-        data_file = 'data';
+    let params = new URLSearchParams(window.location.search);
+    if (!params.has('data')) {
+        return 'data';
     }
-    console.log(`data_file=${data_file}`);
+    let data_file = <string>params.get('data');
+    data_file = sanitize(data_file);
+    return data_file;
 }
 
 let data_file = determineDataFile();
+console.log(`data_file=${data_file}`);
 
 // TODO make this dynamic based on the field mapping
 Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipient: string, ContributorPostalcode: string, Monetaryamount: number }>(`./${data_file}.csv`, {
