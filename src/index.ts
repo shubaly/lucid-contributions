@@ -88,9 +88,9 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
 
         // Add colors to the nodes, based on node types:
         const COLORS: Record<string, string> = {
-            contributor: "#003f5c",
-            recipient: "#bc5090",
-            recipient_party: "#ffa600"
+            contributor: "#ffa600",
+            recipient: "#003f5c",
+            recipient_party: "#bc5090"
         };
 
         graph.forEachNode((node, attributes) =>
