@@ -46,6 +46,25 @@ group by
 order by
   random();
 
+--data-right-wing
+select
+  lower([Recipient]) as Recipient,
+  lower([Political Party of Recipient]) as 'Political Party of Recipient',
+  lower([Contributor name]) as 'Contributor name',
+  sum([Monetary amount]) as 'Monetary amount'
+from
+  od_cntrbtn_audt_e
+where
+  [Electoral event] = '44th general election'
+  and [Contributor name] not like 'Contributions of%'
+  and [Monetary amount] > 0
+group by
+  lower([Recipient]),
+  lower([Political Party of Recipient]),
+  lower([Contributor name])
+order by
+  random();
+
 -- data-ns-contributors
 select
   lower([Recipient]) as Recipient,
