@@ -118,7 +118,7 @@ Papa.parse<{ Recipient: string; Contributorname: string; PoliticalPartyofRecipie
         const degrees = graph.nodes().map((node) => graph.getNodeAttribute(node, 'degree'));
         const minDegree = Math.min(...degrees);
         const maxDegree = Math.max(...degrees);
-        const minSize = 2, maxSize = 50;
+        const minSize = 3, maxSize = 30;
 
         graph.forEachNode((node) => {
             const degree = graph.getNodeAttribute(node, 'degree');
